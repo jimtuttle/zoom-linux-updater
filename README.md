@@ -4,7 +4,7 @@ Compares versions between locally-installed Zoom client and latest online versio
 
 I added a job to root's crontab to run 5 after each hour between 7AM and 3PM each weekday:
 
-$ sudo crontab -e
+$ sudo crontab -l
 
 ```
 # m h  dom mon dow   command
@@ -12,6 +12,13 @@ $ sudo crontab -e
 # Zoom client updates
 5 7-15 * * 1-5 python /path/to/zoom-linux-updater.py
 ```
+
+If you read your system mail and don't want to see stdout clutter, you can redirect that to /dev/null and continue to receive stderr:
+```
+# Zoom client updates
+5 7-15 * * 1-5 python /path/to/zoom-linux-updater.py 1> /dev/null
+```
+
 
  Althought Zoom specifies several distributions, there are only two packages.  The URLs for those are:
  
